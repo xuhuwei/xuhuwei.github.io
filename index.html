@@ -1,1 +1,119 @@
-HELLO WORLD!
+<!DOCTYPE HTML>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>A simple example</title>
+    <link rel="stylesheet" href="../src/css/pannellum.css" />
+    <script type="text/javascript" src="../src/js/pannellum.js"></script>
+    <script type="text/javascript" src="../src/js/libpannellum.js"></script>
+    <style>
+        body {
+            margin: 0;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div id="panorama"></div>
+    <script>
+
+        const panorama = document.querySelector('#panorama')
+        console.log(panorama.style.width)
+        panorama.style.width = window.innerWidth + 'px'
+        panorama.style.height = window.innerHeight + 'px'
+
+        pannellum.viewer('panorama', {
+            "default": {
+                "firstScene": "ruckerPark",
+                "autoLoad": true,
+                "pitch": 0,
+                "yaw": -180,
+                "hfov": 60,
+                "compass": false,
+                "sceneFadeDuration": 1000
+            },
+
+            "scenes": {
+                "ruckerPark": {
+                    "title": "洛克公园",
+                    "panorama": "./img/01.jpg",
+                    "hotSpots": [
+                        {
+                            "pitch": -4.274634937352262,
+                            "yaw": 173.6708351083282,
+                            "type": "scene",
+                            "text": "球场入口",
+                            "sceneId": "fuwutai"
+                        }
+                    ]
+                },
+                "fuwutai": {
+                    "title": "服务台",
+                    "panorama": "./img/02.jpg",
+                    "pitch": 5,
+                    "yaw": -40,
+                    "hotSpots": [
+                        {
+                            "pitch": -13.699348424990704,
+                            "yaw": 115.14287870501796,
+                            "type": "scene",
+                            "text": "出口",
+                            "sceneId": "ruckerPark"
+                        },
+                        {
+                            "pitch": -2.974870688614009,
+                            "yaw": -33.13696230008409,
+                            "type": "scene",
+                            "text": "球场",
+                            "sceneId": "qiuchang"
+                        }
+                    ]
+                },
+                "qiuchang": {
+                    "title": "球场",
+                    "panorama": "./img/03.jpg",
+                    "pitch": 5,
+                    "yaw": -80,
+                    "hfov": 80,
+                    "hotSpots": [
+                        {
+                            "pitch": -1.3602719727996022,
+                            "yaw": 51.566067515131905,
+                            "type": "scene",
+                            "text": "服务台",
+                            "sceneId": "fuwutai"
+                        },
+                        {
+                            "pitch": 2.6781311097961504,
+                            "yaw": -37.503650587558454,
+                            "type": "scene",
+                            "text": "健身房",
+                            "sceneId": "jianshenfang"
+                        }
+                    ]
+                },
+                "jianshenfang": {
+                    "title": "健身房",
+                    "panorama": "./img/04.jpg",
+                    "hotSpots": [
+                        {
+                            "pitch": -7.903537281723269,
+                            "yaw": 34.212601592348065,
+                            "type": "scene",
+                            "text": "球场",
+                            "sceneId": "qiuchang"
+                        }
+                    ]
+                }
+            }
+        })
+
+
+    </script>
+
+</body>
+
+</html>
